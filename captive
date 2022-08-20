@@ -525,11 +525,11 @@ while wait(.05) do
 		for playersIndex, player in pairs(playerChildren) do
 			if player.Name ~= game.Players.LocalPlayer.Name then
 				local args = {
-					[1] = "RagdollPlr",
-					[2] = player.Name
+				[1] = "Ragdoll",
+				[2] = game:GetService("Players"):FindFirstChild(player.Name)
 				}
 
-				game:GetService("ReplicatedStorage").ProjectGemma.Remotes.ragdollEvent:FireServer(unpack(args))
+				game:GetService("ReplicatedStorage").Network.RagdollRequest:InvokeServer(unpack(args))
 			end
 		end
 	end
